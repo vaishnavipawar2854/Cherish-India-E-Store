@@ -16,8 +16,10 @@ export default defineConfig({
     ],
     proxy: {
       '/api': {
-        target: 'cherish-india-e-store-backend-72t1.vercel.app',
+        target: process.env.VITE_API_URL || 'https://cherish-india-e-store-backend.onrender.com',
         changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path
       },
     },
   },
@@ -31,5 +33,13 @@ export default defineConfig({
       'localhost',
       '.vercel.app'
     ],
+    proxy: {
+      '/api': {
+        target: process.env.VITE_API_URL || 'https://cherish-india-e-store-backend.onrender.com',
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path
+      },
+    },
   },
 })
