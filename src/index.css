@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Soft yet vibrant ocean-inspired palette */
+    --background: 210 100% 99%; /* #F8FBFF - light pastel blue-white */
+    --foreground: 0 0% 12%; /* #1E1E1E - text primary */
+    --card: 0 0% 100%; /* Pure white cards for contrast */
+    --card-foreground: 0 0% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+    --primary: 196 100% 36%; /* #0077B6 - deep ocean blue */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 195 76% 76%; /* #90DBF4 - aqua */
+    --secondary-foreground: 0 0% 12%;
+    --muted: 210 40% 96%; /* Light blue for muted elements */
+    --muted-foreground: 0 0% 31%; /* #4F4F4F - text secondary */
+    --accent: 351 100% 91%; /* #FFCFD2 - soft pink warmth */
+    --accent-foreground: 0 0% 12%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 30% 90%; /* Soft blue border */
+    --input: 210 40% 97%; /* Light blue input background */
+    --ring: 196 100% 36%; /* Primary color for focus rings */
+    --radius: 1rem; /* Rounded corners */
+    
+    /* Custom ocean colors */
+    --ocean-blue: 196 100% 36%; /* #0077B6 */
+    --aqua-blue: 195 76% 76%; /* #90DBF4 */
+    --soft-pink: 351 100% 91%; /* #FFCFD2 */
+    --light-aqua: 195 70% 85%; /* Lighter aqua for gradients */
+  }
+
+  .dark {
+    /* Dark mode with ocean-inspired adaptation */
+    --background: 210 50% 6%; /* Dark blue-tinted background */
+    --foreground: 210 20% 95%;
+    --card: 210 50% 8%;
+    --card-foreground: 210 20% 95%;
+    --popover: 210 50% 8%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 196 90% 50%; /* Brighter ocean blue for dark mode */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 195 40% 25%;
+    --secondary-foreground: 210 20% 90%;
+    --muted: 210 40% 12%;
+    --muted-foreground: 210 15% 65%;
+    --accent: 351 80% 75%; /* Muted pink for dark mode */
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 40% 15%;
+    --input: 210 40% 10%;
+    --ring: 196 90% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-['Inter',_sans-serif];
+  }
+}
+
+@layer components {
+  /* Ocean-inspired component styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-[hsl(var(--ocean-blue))] to-[hsl(var(--primary))] text-white font-medium px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 hover:from-[#0096E6] hover:to-[#0077B6];
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-[hsl(var(--aqua-blue))] to-[hsl(var(--secondary))] text-[hsl(var(--foreground))] font-medium px-6 py-3 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300 border-2 border-[hsl(var(--aqua-blue))];
+  }
+
+  .btn-accent {
+    @apply bg-gradient-to-r from-[hsl(var(--soft-pink))] to-[#FFE1E5] text-[hsl(var(--foreground))] font-medium px-6 py-3 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300;
+  }
+
+  .card-ocean {
+    @apply bg-white/90 backdrop-blur-sm border border-[hsl(var(--border))] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 hover:border-[hsl(var(--ocean-blue))] hover:bg-white;
+  }
+
+  .input-ocean {
+    @apply bg-[hsl(var(--input))] border-2 border-[hsl(var(--border))] rounded-lg px-4 py-3 focus:outline-none focus:border-[hsl(var(--ocean-blue))] focus:ring-2 focus:ring-[hsl(var(--ocean-blue))]/20 transition-all duration-200;
+  }
+
+  .heading-ocean {
+    @apply font-bold text-[hsl(var(--foreground))] mb-4;
+  }
+
+  .text-ocean {
+    @apply text-[hsl(var(--muted-foreground))] leading-relaxed;
+  }
+
+  .gradient-ocean {
+    @apply bg-gradient-to-br from-[hsl(var(--background))] via-[hsl(var(--aqua-blue))]/10 to-[hsl(var(--soft-pink))]/5;
+  }
+
+  .navbar-ocean {
+    @apply bg-white/95 backdrop-blur-md border-b border-[hsl(var(--border))] shadow-sm;
+  }
+
+  .footer-ocean {
+    @apply bg-gradient-to-r from-[hsl(var(--ocean-blue))] to-[hsl(var(--primary))] text-white;
+  }
+
+  /* Interactive elements */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .glow-effect {
+    @apply hover:shadow-[0_0_20px_rgba(0,119,182,0.3)] transition-shadow duration-300;
+  }
+
+  /* Animation classes */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .pulse-ocean {
+    animation: pulseOcean 2s infinite;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulseOcean {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(0, 119, 182, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(0, 119, 182, 0);
+    }
+  }
+
+  /* Smooth scrolling */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/20 backdrop-blur-lg border border-white/30;
+  }
+
+  /* Ocean wave animation background */
+  .ocean-wave {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--aqua-blue)) 50%,
+      hsl(var(--soft-pink)) 100%
+    );
+    background-size: 200% 200%;
+    animation: oceanWave 8s ease-in-out infinite;
+  }
+
+  @keyframes oceanWave {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Floating animation for hero elements */
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Card pop and image zoom */
+  .card-animate {
+    transition: transform 300ms cubic-bezier(.2,.9,.2,1), box-shadow 300ms;
+    will-change: transform;
+  }
+
+  .card-animate:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  }
+
+  .img-zoom {
+    transition: transform 450ms cubic-bezier(.22,.9,.3,1);
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  .img-zoom:hover {
+    transform: scale(1.06) rotateZ(0.5deg);
+  }
+
+  /* Stagger utilities: small helpers for JS-free staggered entrance */
+  .stagger-parent > * {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: staggerIn 600ms forwards ease-out;
+  }
+
+  .stagger-parent > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-parent > *:nth-child(2) { animation-delay: 80ms; }
+  .stagger-parent > *:nth-child(3) { animation-delay: 160ms; }
+  .stagger-parent > *:nth-child(4) { animation-delay: 240ms; }
+  .stagger-parent > *:nth-child(5) { animation-delay: 320ms; }
+  .stagger-parent > *:nth-child(6) { animation-delay: 400ms; }
+
+  @keyframes staggerIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Subtle tilt on pointer hover for hero cards */
+  .tilt-hover { transform-origin: center; transition: transform 300ms ease; }
+  .tilt-hover:hover { transform: perspective(900px) rotateX(2deg) rotateY(-2deg) translateY(-6px); }
+}
