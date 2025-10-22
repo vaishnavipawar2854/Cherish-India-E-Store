@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://cherish-india-e-store-backend-72t1.vercel.app',
+        target: 'https://cherish-india-e-store-backend.onrender.com',
         changeOrigin: true,
       },
     },
